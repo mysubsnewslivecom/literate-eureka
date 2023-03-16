@@ -1,50 +1,19 @@
-# Sit visa agimus et quos dedit
+# About
 
-## Quoque habet nec nec metu membrisque adoleret
+## Welcome to MkDocs
 
-Lorem markdownum lactente non sua umeroque; **nec litora ait** nemoris et
-serpens Megareus levius cum nefas Hyperione saxum vix. Sanguinis tu **membris
-tempus** crevit viscera septem aliter scire tunc est sonitum, parat, loco virgo
-praecipiti **iuvet** membra!
+For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-Nitidaque quas mihi mea factum interque interitura [pyrame conripiantque
-illam](http://paterque-infelix.net/mihi). Urbis pabula iuvat unda lacertos
-patrem de temperat, huc hominem mortis adsimilare aras. Peneia alta ire datus,
-quo validi recurvam audire humanam coniunctior genibusque *anilem*; non sacris
-nostri oculis: O. Soror discedens nimia crepitante locavit conata exemplum et
-verum: fila celatur passu utque, Talibus.
+### Commands
 
-## Vittis modo tamen serisque
+* `mkdocs new [dir-name]` - Create a new project.
+* `mkdocs serve` - Start the live-reloading docs server.
+* `mkdocs build` - Build the documentation site.
+* `mkdocs -h` - Print help message and exit.
 
-Partu videres ab, de amori, videntem nunc huius hostes iamque, ab equos vellet,
-pondere pondera. Qui ille, Ulixis fulgorem Iason. Referre parens fameque, orbe
-opem, ait, et posse *inlaesos*, nocte!
+### Project layout
 
-Invenio et Amorum eripe. Traiecta sonuere, manifesta et exigua tenent dolores
-**ferox nutu invasit**; quies. Adest semesaque lupis tetigit pervia? Vir habet
-quis nunc, vel paulatimque cum umeros Troica nemus, certamina paenitet quoque.
-Satus **spectant** redditur vosne.
-
-## Sive fuit fata linguae
-
-Ilia **et proque**: intima diu, sacra praedictaque inquit. Est hunc contingere,
-indicat avertitur monstrum nivea, in cruore *tibia*: solvere. Abstulit senes
-aequora: parabam est, Minos nebulas et opemque [loco
-tuae](http://principiisstudeat.net/adit) natis **fuit** Ammon publica; quod.
-
-Summa **Pelasgi** perstat dicit dextrae spes Fames? Nec dis Lacinia fero pomaque
-erat, qua monuit omnem iunonis, gravi dixit. Athon miserabile: [vidit
-lacu](http://careremoriemur.org/aurem-es), aura qui! Eadem oves.
-
-## Nostro multa
-
-Venit dicta, nate dea venit vestes quoque doluere celeberrima neve, *committere
-respicit* qua spemque? Monte regina.
-
-- Suspiria comitum trepidantem terga leves teneo qui
-- Et quid Achilles
-- Sacra Phineus pars coeunt
-- Obligor senatus cruoris in erat roga longis
-
-Et frustra vidi proxima petiit detinuit; moly vel illud, tenuem non! Alii nunc
-nostroque, Nonacrinas carmine media est quoque duo Echionides.
+    mkdocs.yml    # The configuration file.
+    docs/
+        index.md  # The documentation homepage.
+        ...       # Other markdown pages, images and other files.
