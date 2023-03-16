@@ -1,0 +1,61 @@
+{
+    "name": "mkdocs",
+    "image": "mkdocs:0.1",
+    // "build": {
+    //     "dockerfile": "Dockerfile",
+    //     "args": {
+    //         "USERNAME": "linux",
+    //         "GROUP": "linux",
+    //         "INSTALL_NODE": "true",
+    //         "BASE_IMAGE_NAME": "python",
+    //         "BASE_IMAGE_TAG": "3.10",
+    //     },
+    //     "context": "."
+    // },
+    "remoteUser": "linux",
+    "runArgs": [
+        "--name=my-simple-project",
+        "--env-file",
+        ".devcontainer/.env"
+    ],
+    "containerEnv": {
+        "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
+        "ANSIBLE_ENV": "${localEnv:ANSIBLE_ENV}",
+        "MY_CONTAINER_VAR": "some-value-here",
+    },
+    "remoteEnv": {
+        "PATH": "${containerEnv:PATH}:/some/other/path",
+        "MY_REMOTE_VARIABLE": "some-other-value-here",
+        "MY_REMOTE_VARIABLE2": "${localEnv:SOME_LOCAL_VAR}",
+        "DJANGO_DB_HOST": "${containerEnv:DJANGO_DB_HOST}"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "yzhang.markdown-all-in-one"
+            ],
+            "settings": {
+                "python.testing.pytestArgs": [
+                    "."
+                ],
+                "python.testing.unittestEnabled": false,
+                "python.testing.pytestEnabled": true,
+                "python.formatting.provider": "black",
+                "python.linting.mypyEnabled": true,
+                "python.linting.enabled": true
+            }
+        }
+    },
+    "portsAttributes": {
+        "8000": {
+            "label": "MkDocsUI",
+            "onAutoForward": "notify"
+        }
+    },
+    "forwardPorts": [
+        8000
+    ],
+    "postCreateCommand": "pip install -r .devcontainer/requirements.txt",
+    "postStartCommand": "cd document && mkdocs serve "
+}
