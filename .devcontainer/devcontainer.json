@@ -1,33 +1,32 @@
 {
     "name": "mkdocs",
-    "image": "mkdocs:0.1",
-    // "build": {
-    //     "dockerfile": "Dockerfile",
-    //     "args": {
-    //         "USERNAME": "linux",
-    //         "GROUP": "linux",
-    //         "INSTALL_NODE": "true",
-    //         "BASE_IMAGE_NAME": "python",
-    //         "BASE_IMAGE_TAG": "3.10",
-    //     },
-    //     "context": "."
-    // },
+    // "image": "mkdocs:0.1",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "USERNAME": "linux",
+            "GROUP": "linux",
+            "INSTALL_NODE": "true",
+            "BASE_IMAGE_NAME": "python",
+            "BASE_IMAGE_TAG": "3.10",
+        },
+        "context": "."
+    },
     "remoteUser": "linux",
     "runArgs": [
-        "--name=my-simple-project",
-        "--env-file",
-        ".devcontainer/.env"
+        "--name=mkdocs",
+        "--env-file=.devcontainer/.env"
     ],
     "containerEnv": {
-        "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
+        "GITHUB_TOKEN": "${localEnv:NAME}",
         "ANSIBLE_ENV": "${localEnv:ANSIBLE_ENV}",
-        "MY_CONTAINER_VAR": "some-value-here",
+        "MY_CONTAINER_VAR": "some-value-here"
     },
     "remoteEnv": {
         "PATH": "${containerEnv:PATH}:/some/other/path",
         "MY_REMOTE_VARIABLE": "some-other-value-here",
-        "MY_REMOTE_VARIABLE2": "${localEnv:SOME_LOCAL_VAR}",
-        "DJANGO_DB_HOST": "${containerEnv:DJANGO_DB_HOST}"
+        "OLDPWD": "${localEnv:OLDPWD}",
+        "DJANGO_DB_HOST": "${containerEnv:PYTHONDONTWRITEBYTECODE}"
     },
     "customizations": {
         "vscode": {
@@ -56,6 +55,13 @@
     "forwardPorts": [
         8000
     ],
-    "postCreateCommand": "pip install -r .devcontainer/requirements.txt",
-    "postStartCommand": "cd document && mkdocs serve "
+    "postCreateCommand": "python3 -m pip install -r .devcontainer/requirements.txt",
+    "postStartCommand": "cd document && mkdocs serve ",
+    "onCreateCommand": "python -V",
+    // "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    // "workspaceFolder": "/workspace",
+    "mounts": [
+        "source=${localEnv:HOME}/.ssh,target=/home/linux/.ssh,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.user_profile,target=/home/linux/,type=bind,consistency=cached",
+    ]
 }

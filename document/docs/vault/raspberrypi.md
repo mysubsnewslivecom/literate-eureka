@@ -42,8 +42,11 @@ kind: ServiceAccount
 metadata:
   name: ${SERVICE_NAME?}
 EOF
-```
 
+# or
+
+kubectl create serviceaccount ${SERVICE_NAME?}
+```
 ### 5. Create vault role
 ```sh
 export SERVICE_NAME=vault-sa
