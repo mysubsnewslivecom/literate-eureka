@@ -1,16 +1,17 @@
 # Setting vault for kubernetes
 
 ### 1. Enable vault path
+
 ```sh
 vault secrets enable -path=secret kv-v2
 
 vault auth enable kubernetes
 
 vault auth enable userpass
-
 ```
 
 ### 2. Setup Kubernetes auth config
+
 ```sh
 vault write auth/kubernetes/config \
    token_reviewer_jwt="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
@@ -19,6 +20,7 @@ vault write auth/kubernetes/config \
 ```
 
 ### 3. Create vault policy
+
 ```sh
 vault policy write database-app - <<EOF
 path "secret/data/database/config" {
@@ -34,6 +36,7 @@ EOF
 ```
 
 ### 4. Create kubernetes service account
+
 ```sh
 export SERVICE_NAME=vault-sa
 kubectl apply -f - <<EOF
@@ -47,7 +50,9 @@ EOF
 
 kubectl create serviceaccount ${SERVICE_NAME?}
 ```
+
 ### 5. Create vault role
+
 ```sh
 export SERVICE_NAME=vault-sa
 export NAMESPACE=vault
@@ -57,4 +62,3 @@ vault write auth/kubernetes/role/internal-app \
     policies=app \
     ttl=24h
 ```
-
