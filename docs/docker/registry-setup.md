@@ -9,9 +9,9 @@ title: Registry Setup
 
 2. Generate htpasswd:
 
- ```sh
+    ```sh
     htpasswd -Bbn linux test> htpasswd
- ```
+    ```
 
 3. Copy domain.crt to /etc/docker/certs.d/$(hostname):5000 as ca.crt
 
