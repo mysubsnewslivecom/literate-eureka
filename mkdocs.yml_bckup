@@ -1,14 +1,11 @@
-site_name: My documentation portal
+site_name: My Docs
 theme:
   name: material
   features:
     - navigation.tabs
     - navigation.sections
-    - toc.integrate
     - navigation.top
-    - navigation.footer
-    - header.autohide
-    - navigation.expand
+    - toc.integrate
     - search.suggest
     - search.highlight
     - content.tabs.link
@@ -18,16 +15,15 @@ theme:
   palette:
     - scheme: default
       toggle:
-        icon: material/brightness-7
-        # icon: material/toggle-switch-off-outline 
+        icon: material/toggle-switch-off-outline 
         name: Switch to dark mode
       primary: black
-      accent: purple 
+      accent: lime 
     - scheme: slate 
       toggle:
-        icon: material/brightness-4
-        # icon: material/toggle-switch
+        icon: material/toggle-switch
         name: Switch to light mode    
+      # primary: teal
       primary: black
       accent: lime
 
@@ -39,7 +35,6 @@ extra:
       link: https://twitter.com/mysubsnewslive
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/mysubsnewslive/
-  generator: false
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -57,32 +52,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  # Python Markdown
-  - abbr
-  - admonition
-  - attr_list
-  - def_list
-  - footnotes
-  - md_in_html
-  - toc:
-      permalink: true
-  # Python Markdown Extensions
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
-  - pymdownx.details
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
-
 
 copyright: |
   &copy; 2023 <a href="https://github.com/mysubsnewslive"  target="_blank" rel="noopener">mysubsnewslive</a>

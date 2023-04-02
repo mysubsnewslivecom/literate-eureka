@@ -47,16 +47,16 @@
         }
     },
     "portsAttributes": {
-        "8000": {
+        "4000": {
             "label": "MkDocsUI",
             "onAutoForward": "notify"
         }
     },
     "forwardPorts": [
-        8000
+        4000
     ],
     "postCreateCommand": "python3 -m pip install -r .devcontainer/requirements.txt",
-    "postStartCommand": "cd document && mkdocs serve ",
+    "postStartCommand": "mkdocs serve -a 0.0.0.0:4000",
     "onCreateCommand": "python -V",
     // "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
     // "workspaceFolder": "/workspace",

@@ -5,22 +5,12 @@ FROM ${BASE_IMAGE_NAME}:${BASE_IMAGE_TAG}
 
 ENV C_FORCE_ROOT true
 # ENV USERNAME=linux
-# ENV GROUP=linux
+ENV GROUP=linux
 
 ARG USERNAME=linux
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ENV HOME /home/${USERNAME}
-
-# Add non-root user
-RUN groupadd ${GROUP} && useradd -s /bin/bash --create-home --home-dir ${HOME} -g ${GROUP} ${USERNAME}
-
-## Make sure to reflect new user in PATH
-ENV PATH="/home/${USERNAME}/.local/bin:${PATH}"
-
-# set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
@@ -37,6 +27,21 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     build-essential \
     apt-transport-https \
     && rm -rf /var/lib/apt/lists/*
+
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME 
+
+# Add non-root user
+# RUN groupadd ${GROUP} && useradd -s /bin/bash --create-home --home-dir ${HOME} -g ${GROUP} ${USERNAME}
+
+## Make sure to reflect new user in PATH
+ENV PATH="/home/${USERNAME}/.local/bin:${PATH}"
+
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+
 
 USER $USERNAME
 
