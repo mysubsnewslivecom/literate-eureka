@@ -1,4 +1,9 @@
+---
+title: Commands
+---
+
 ### Storage class
+
 ```sh
 kubectl apply -f - <<EOF
 apiVersion: storage.k8s.io/v1

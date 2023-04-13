@@ -51,5 +51,10 @@ RUN pip install --upgrade pip --no-cache-dir
 
 # Install production dependencies
 COPY --chown=${USERNAME}:${GROUP} requirements.txt /tmp/requirements.txt
+
+WORKDIR /workspaces
+
 RUN pip install -r /tmp/requirements.txt --no-cache-dir && \
     rm /tmp/requirements.txt
+
+ENTRYPOINT [ "mkdocs", "serve", "-a", "0.0.0.0:4000" ]

@@ -1,2 +1,3 @@
-# Welcome to documentation
-
+---
+title: Welcome to documentation
+---

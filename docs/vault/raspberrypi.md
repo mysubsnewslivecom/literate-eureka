@@ -1,4 +1,6 @@
-# Setting vault for kubernetes
+---
+title: Setting vault for kubernetes
+---
 
 ### 1. Enable vault path
 

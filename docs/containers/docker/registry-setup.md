@@ -1,6 +1,7 @@
 ---
 title: Registry Setup
 ---
+
 1. Generate ssl certificates:
 
     ```sh

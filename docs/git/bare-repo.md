@@ -1,4 +1,8 @@
-```
+---
+title: Bare repo
+---
+
+```sh
 git init --bare $HOME/.cfg
 
 echo "alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.bash_aliases
