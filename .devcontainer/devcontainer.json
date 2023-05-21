@@ -64,6 +64,6 @@
     // "workspaceFolder": "/workspace",
     "mounts": [
         "source=${localEnv:HOME}/.ssh,target=/home/linux/.ssh,type=bind,consistency=cached",
-        "source=${localEnv:HOME}/.user_profile,target=/home/linux/,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.user_profile,target=/home/linux/,type=bind,consistency=cached"
     ]
 }
