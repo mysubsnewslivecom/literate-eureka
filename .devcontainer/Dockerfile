@@ -10,21 +10,21 @@ ARG GROUP=$USER
 
 # set environment variables
 ENV C_FORCE_ROOT=true \
-  DEBIAN_FRONTEND=noninteractive \
-  DJANGO_ENV=${DJANGO_ENV} \
-  # python:
-  PYTHONFAULTHANDLER=1 \
-  PYTHONUNBUFFERED=1 \
-  PYTHONHASHSEED=random \
-  PYTHONDONTWRITEBYTECODE=1 \
-  PYTHONUNBUFFERED=1 \
-  # pip:
-  PIP_NO_CACHE_DIR=off \
-  PIP_DISABLE_PIP_VERSION_CHECK=on \
-  PIP_DEFAULT_TIMEOUT=100
-  # user
-  GROUP=$USER
-  HOME=/home/$USER
+    DEBIAN_FRONTEND=noninteractive \
+    DJANGO_ENV=${DJANGO_ENV} \
+    # python:
+    PYTHONFAULTHANDLER=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONHASHSEED=random \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    # pip:
+    PIP_NO_CACHE_DIR=off \
+    PIP_DISABLE_PIP_VERSION_CHECK=on \
+    PIP_DEFAULT_TIMEOUT=100
+    # user
+    GROUP=$USER
+    HOME=/home/$USER
 
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
