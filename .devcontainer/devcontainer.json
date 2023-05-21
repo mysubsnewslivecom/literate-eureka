@@ -8,7 +8,7 @@
             "GROUP": "linux",
             "INSTALL_NODE": "true",
             "BASE_IMAGE_NAME": "python",
-            "BASE_IMAGE_TAG": "3.10",
+            "BASE_IMAGE_TAG": "3.10"
         },
         "context": "."
     },
